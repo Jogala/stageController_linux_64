@@ -37,22 +37,36 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionFigures">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/icons/figures_bw.jpg</normaloff>:/icons/icons/figures_bw.jpg</iconset>
+   </property>
    <property name="text">
     <string>Figures</string>
    </property>
   </action>
   <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/icons/settings.png</normaloff>:/icons/icons/settings.png</iconset>
+   </property>
    <property name="text">
     <string>Settings</string>
    </property>
   </action>
   <action name="actionPuls">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/icons/puls.png</normaloff>:/icons/icons/puls.png</iconset>
+   </property>
    <property name="text">
     <string>Puls</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

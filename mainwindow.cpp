@@ -8,13 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     firstPage *firstPageWidget= new firstPage(this);
-//    secondPage *secondPageWidget= new secondPage(this);
-//    thirdPage *thirdPageWidget = new thirdPage(this);
+    secondPage *secondPageWidget= new secondPage(this);
+    thirdPage *thirdPageWidget = new thirdPage(this);
     stackedWidget = new QStackedWidget(this);
 
     stackedWidget->addWidget(firstPageWidget);
-//    stackedWidget->addWidget(secondPageWidget);
-//    stackedWidget->addWidget(thirdPageWidget);
+    stackedWidget->addWidget(secondPageWidget);
+    stackedWidget->addWidget(thirdPageWidget);
     this->setCentralWidget(stackedWidget);
 
 
@@ -29,15 +29,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionFigures_triggered()
 {
-
-}
-
-void MainWindow::on_actionSettings_triggered()
-{
+    stackedWidget->setCurrentIndex(0);
+    this->setCentralWidget(stackedWidget);
 
 }
 
 void MainWindow::on_actionPuls_triggered()
 {
+    stackedWidget->setCurrentIndex(1);
+    this->setCentralWidget(stackedWidget);
 
+}
+
+
+void MainWindow::on_actionSettings_triggered()
+{
+    stackedWidget->setCurrentIndex(2);
+    this->setCentralWidget(stackedWidget);
 }

@@ -43,6 +43,7 @@ double  figures::line::getValue(int i){
 
 void    figures::line::printMemberVariables(){
 
+    cout<<"PRINT MEMBER VARIABLES"<<endl;
     int i = 0;
     for(auto item : itsValues){
         cout<<i++<<" "<<item<<endl;

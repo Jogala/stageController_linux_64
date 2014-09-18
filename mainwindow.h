@@ -26,8 +26,8 @@
 #include <QWidgetAction>
 
 #include "pages/firstpage.h"
-//#include "pages/secondpage.h"
-//#include "pages/thirdpage.h"
+#include "pages/secondpage.h"
+#include "pages/thirdpage.h"
 
 
 namespace Ui {

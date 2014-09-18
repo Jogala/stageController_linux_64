@@ -161,6 +161,7 @@ void firstPage::on_line_set_clicked()
 
 void firstPage::on_line_cut_clicked()
 {
+    mLine.printMemberVariables();
     mLine.cutAbsLim3D();
 }
 
