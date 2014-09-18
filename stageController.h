@@ -30,6 +30,7 @@ public:
     ///////////////////
     void initialize();
 
+    void getFocusValues(double focus[3]);
     void setFocus_and_writeValuesToFile(double xFocus, double yFocus, double zFocus);
     void loadFocusValuesFromFile();
     void moveInFocus();

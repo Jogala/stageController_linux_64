@@ -2,7 +2,12 @@
 #define THIRDPAGE_H
 
 #include "stageController.h"
+#include "GlobalVariables.h"
 #include <QWidget>
+#include <QAbstractButton>
+#include <QAbstractSpinBox>
+
+using namespace std;
 
 namespace Ui {
 class thirdPage;
@@ -16,8 +21,36 @@ public:
     explicit thirdPage( QWidget *parent = 0);
     ~thirdPage();
 
+private slots:
+
+    void on_up_button_pressed();
+
+    void on_down_button_pressed();
+
+    void on_left_button_pressed();
+
+    void on_right_button_pressed();
+
+    void on_set_focus_values_clicked();
+
+    void on_stepSize_spinBox_valueChanged(double arg1);
+
+    void on_vel_spinBox_valueChanged(double arg1);
+
+    void on_pushButton_clicked();
+
+
+    void on_delayFactor_SpinBox_valueChanged(double arg1);
+
 private:
     Ui::thirdPage *ui;
+
+    //Set Focus
+    double stepSize=1;
+    double vel = 1000;
+    double pos[3];
+    double focus[3];
+    double tare[3];
 
 };
 

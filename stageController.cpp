@@ -191,6 +191,16 @@ void stageController::loadFocusValuesFromFile(){
 
 
 }
+
+void stageController::getFocusValues(double focus[3]){
+
+   focus[0]=itsXFocus;
+   focus[1]=itsYFocus;
+   focus[2]=itsZFocus;
+}
+
+
+
 void stageController::moveInFocus(){
 
 

@@ -10,21 +10,6 @@ firstPage::firstPage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    firstPage->setLayout(ui->verticalLayout_5);
-//    firstPage->setFixedSize(1500, 420);
-
-//    QRect recMenuBar=ui->menuBar->geometry();
-
-//    int widthOfScrollBar = qApp->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
-//    this->resize(1500+1.5*widthOfScrollBar,420+1.5*widthOfScrollBar+ recMenuBar.height());
-//    this->setMinimumHeight(420+1.5*widthOfScrollBar+ recMenuBar.height());
-//    this->setMaximumWidth(1500+1.5*widthOfScrollBar);
-
-//    QScrollArea *scrollArea = new QScrollArea(this);
-//    scrollArea->setWidget(firstPage);
-//    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    setCentralWidget(scrollArea);
-
     setUp_LineTable();
     setUp_RecTable();
     setUp_PolyTable();
@@ -58,6 +43,9 @@ firstPage::~firstPage()
 
 void firstPage::on_line_cut_clicked()
 {
+
+    mLine.delayFactor=::macroDelayFactor;
+
     double x;
     //Assing values from DoubelSpinBoxes to Line
     for(int i=0;i<5;i++)
@@ -88,6 +76,9 @@ void firstPage::on_line_cut_clicked()
 void firstPage::on_rec_cut_clicked()
 {
 
+    mRectangle.delayFactor=::macroDelayFactor;
+
+
     double x;
     //Assing values from DoubelSpinBoxes to Rectangle
     for(int i=0;i<6;i++)
@@ -116,6 +107,10 @@ void firstPage::on_rec_cut_clicked()
 
 void firstPage::on_poly_cut_clicked()
 {
+
+    mPoly.delayFactor=::macroDelayFactor;
+
+
     double x;
     //Assing values from DoubelSpinBoxes to Poly
     for(int i=0;i<6;i++)
@@ -143,6 +138,8 @@ void firstPage::on_poly_cut_clicked()
 
 void firstPage::on_spiral_cut_clicked()
 {
+
+     mSpiral.delayFactor=::macroDelayFactor;
 
     double x;
     //Assing values from DoubelSpinBoxes to Spiral
@@ -414,8 +411,8 @@ void firstPage::setUp_PolyTable(){
     ////////////////////////////////////////////////////////////////////////
     //      Load stored values and assign them in 3. and 2. Column        //
     ////////////////////////////////////////////////////////////////////////
-    cout<<mRectangle.getStoredValuesPath()<<endl;
-    QFile polyFile(QString::fromStdString(mRectangle.getStoredValuesPath()));
+    cout<<mPoly.getStoredValuesPath()<<endl;
+    QFile polyFile(QString::fromStdString(mPoly.getStoredValuesPath()));
     polyFile.open(QIODevice::ReadOnly | QIODevice::Text);
 
     QTextStream inPoly(&polyFile);
@@ -507,8 +504,8 @@ void firstPage::setUp_SpiralTable(){
     //      Load stored values and assign them in 3. and 2. Column        //
     ////////////////////////////////////////////////////////////////////////
 
-    cout<<mRectangle.getStoredValuesPath()<<endl;
-    QFile spiralFile(QString::fromStdString(mRectangle.getStoredValuesPath()));
+    cout<<mSpiral.getStoredValuesPath()<<endl;
+    QFile spiralFile(QString::fromStdString(mSpiral.getStoredValuesPath()));
     spiralFile.open(QIODevice::ReadOnly | QIODevice::Text);
 
     QTextStream inspiral(&spiralFile);

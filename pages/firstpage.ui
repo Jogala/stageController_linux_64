@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1352</width>
-    <height>594</height>
+    <width>1589</width>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>60</y>
+     <x>0</x>
+     <y>20</y>
      <width>1581</width>
-     <height>461</height>
+     <height>381</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -538,6 +538,9 @@
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>verticalSpacer</zorder>
+  <zorder>verticalSpacer_2</zorder>
  </widget>
  <resources/>
  <connections/>

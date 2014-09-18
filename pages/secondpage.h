@@ -4,6 +4,28 @@
 #include "GlobalVariables.h"
 #include "stageController.h"
 #include <QWidget>
+#include <QWidget>
+#include <QMainWindow>
+#include <QTableWidget>
+#include <QLabel>
+#include <QMessageBox>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
+#include <QDebug>
+#include <QAbstractTextDocumentLayout>
+#include <QHeaderView>
+#include <QLineEdit>
+#include <QAbstractSpinBox>
+#include <QTextEdit>
+#include "QDoubleSpinBox"
+#include <QScrollArea>
+#include <QShortcut>
+#include <QKeySequence>
+#include <QStackedWidget>
+#include <QComboBox>
+#include <QThread>
+
 
 namespace Ui {
 class secondPage;

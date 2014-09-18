@@ -32,8 +32,8 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionFigures"/>
-   <addaction name="actionSettings"/>
    <addaction name="actionPuls"/>
+   <addaction name="actionSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionFigures">

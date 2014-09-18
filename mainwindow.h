@@ -53,6 +53,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QStackedWidget *stackedWidget;
+    QRect recMenuBar;
+    int firstPageHeight = 520;
+    int firstPageWidth  = 1570;
+
 };
 
 #endif // MAINWINDOW_H
