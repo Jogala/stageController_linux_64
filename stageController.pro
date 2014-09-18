@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     Figures/polygon.cpp \
     Figures/rectangle.cpp \
     Figures/spiral.cpp \
-    Figures/surfaceRec.cpp
+    Figures/surfaceRec.cpp \
+    pages/firstpage.cpp
 
 HEADERS  += mainwindow.h \
     stageController.h \
@@ -34,9 +35,11 @@ HEADERS  += mainwindow.h \
     Figures/line.h \
     Figures/polygon.h \
     Figures/rectangle.h \
-    Figures/spiral.h
+    Figures/spiral.h \
+    pages/firstpage.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    pages/firstpage.ui
 
 INCLUDEPATH += $$PWD/Eigen_Linear_Algebra_Library\
 

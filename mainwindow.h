@@ -25,7 +25,7 @@
 #include <QAction>
 #include <QWidgetAction>
 
-//#include "pages/firstpage.h"
+#include "pages/firstpage.h"
 //#include "pages/secondpage.h"
 //#include "pages/thirdpage.h"
 
@@ -44,8 +44,6 @@ public:
 
 private slots:
 
-
-
     void on_actionFigures_triggered();
 
     void on_actionSettings_triggered();
@@ -54,6 +52,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QStackedWidget *stackedWidget;
 };
 
 #endif // MAINWINDOW_H

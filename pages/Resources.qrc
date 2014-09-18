@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/Stores_Values">
+        <file>Stored_Values/rec.txt</file>
+        <file>Stored_Values/line.txt</file>
+        <file>Stored_Values/poly.txt</file>
+        <file>Stored_Values/spiral.txt</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>icons/figures_bw.jpg</file>
+        <file>icons/settings.png</file>
+        <file>icons/puls.png</file>
+        <file>icons/pulse_explanation.png</file>
+    </qresource>
+</RCC>

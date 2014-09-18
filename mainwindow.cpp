@@ -6,6 +6,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    firstPage *firstPageWidget= new firstPage(this);
+//    secondPage *secondPageWidget= new secondPage(this);
+//    thirdPage *thirdPageWidget = new thirdPage(this);
+    stackedWidget = new QStackedWidget(this);
+
+    stackedWidget->addWidget(firstPageWidget);
+//    stackedWidget->addWidget(secondPageWidget);
+//    stackedWidget->addWidget(thirdPageWidget);
+    this->setCentralWidget(stackedWidget);
+
+
+    QSize myIconSize(128,128);
+    ui->mainToolBar->setIconSize(myIconSize);
 }
 
 MainWindow::~MainWindow()
