@@ -150,13 +150,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="line_set">
-          <property name="text">
-           <string>line_set</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QPushButton" name="line_cut">
           <property name="text">
            <string>line_cut</string>
@@ -265,13 +258,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="rec_set">
-          <property name="text">
-           <string>rec_set</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QPushButton" name="rec_cut">
           <property name="text">
            <string>rec_cut</string>
@@ -377,13 +363,6 @@
             <string>vel. = </string>
            </property>
           </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="poly_set">
-          <property name="text">
-           <string>poly_set</string>
-          </property>
          </widget>
         </item>
         <item>
@@ -512,13 +491,6 @@
             <string>vel. = </string>
            </property>
           </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="spiral_set">
-          <property name="text">
-           <string>spiral_set</string>
-          </property>
          </widget>
         </item>
         <item>

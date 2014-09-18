@@ -33,7 +33,6 @@ public:
 
     void printMemberVariables();
 
-    void cutRel3D();
     void cutAbs3D();
     void cutAbsLim3D();
 

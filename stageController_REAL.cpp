@@ -129,14 +129,27 @@ void stageController::loadFocusValuesFromFile(){
 //    if (myReadFile.is_open()) {
 		
 
-//                myReadFile >> itsXFocus;
-//                cout << itsXFocus << endl;
+//                    if(!(myReadFile >> itsXFocus)){
+//                    itsXFocus=0;
+//                    cout<<fileName_FocusValues<<" did not contain values for focus set"<<endl;
+//                    cout<<"itsXFocus set to 0"<<endl;
+//                    }
+//                    cout << itsXFocus << endl;
+    
+//                    if(!(myReadFile >> itsYFocus)){
+//                    itsYFocus=0;
+//                    cout<<fileName_FocusValues<<" did not contain values for focus set"<<endl;
+//                    cout<<"itsYFocus set to 0"<<endl;
+//                    }
+//                    cout << itsYFocus << endl;
+                    
+//                    if(!(myReadFile >> itsZFocus)){
+//                    itsZFocus=0;
+//                    cout<<fileName_FocusValues<<" did not contain values for focus set"<<endl;
+//                    cout<<"itsXFocus set to 0"<<endl;
+//                    }
+//                    cout << itsZFocus << endl;
 
-//                myReadFile >> itsYFocus;
-//                cout << itsYFocus << endl;
-			
-//                myReadFile >> itsZFocus;
-//                cout << itsZFocus << endl;
 				
 //                myReadFile.close();
 //    }

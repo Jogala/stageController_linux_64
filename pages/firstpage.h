@@ -40,14 +40,6 @@ public:
 
 private slots:
 
-    void on_rec_set_clicked();
-
-    void on_poly_set_clicked();
-
-    void on_spiral_set_clicked();
-
-    void on_line_set_clicked();
-
     void on_line_cut_clicked();
 
     void on_rec_cut_clicked();

@@ -13,7 +13,7 @@ private: double Position[3];
          usefulFunctions useful;
          double  veloLimit;
 
-         string fileName_FocusValues = "focusValues.txt";
+         string fileName_FocusValues = "Stored_Values/focusValues.txt";
 		 
 public:
     //Variables

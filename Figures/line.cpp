@@ -51,45 +51,11 @@ void    figures::line::printMemberVariables(){
 
 }
 
-void figures::line::cutRel3D(){
 
-
-    double l = itsValues[0];
-    double phi = itsValues[1];
-    double theta= itsValues[2];
-    double repetitions= itsValues[3];
-    double velocity = itsValues[4];
-
-    pointerToE545->setVelocity(velocity, velocity, velocity);
-    double vec[3];
-    double pos[3];
-    pointerToE545->getPositon(pos);
-    repetitions = repetitions - 1;
-
-    vec[0] = l*cos(phi)*sin(theta);
-    vec[1] = l*sin(phi)*sin(theta);
-    vec[2] = l*cos(theta);
-
-    if (repetitions == 0){
-        pointerToE545->openShutter();
-        pointerToE545->move(vec);
-        pointerToE545->closeShutter();
-        pointerToE545->setVelocity(1000, 1000, 10);
-        pointerToE545->moveTo(pos);
-    }
-    else{
-
-        while (repetitions >= 0){
-            pointerToE545->openShutter();
-            pointerToE545->move(vec);
-            pointerToE545->move(-vec[0], -vec[1], -vec[2]);
-            repetitions = repetitions - 1;
-        }
-        pointerToE545->closeShutter();
-        pointerToE545->moveTo(pos);
-    }
-}
 void figures::line::cutAbs3D(){
+
+    cout<<"ENTER void figures::line::cutAbs3D()"<<endl;
+
 
     double l = itsValues[0];
     double phi = itsValues[1];
@@ -159,8 +125,13 @@ void figures::line::cutAbs3D(){
         pointerToE545->moveTo(pos[0] + pointerToE545->itsXFocus + vec[0] / 2, pos[1] + pointerToE545->itsYFocus + vec[1] / 2, pos[2] + pointerToE545->itsZFocus + vec[2] / 2);
     }//else
 
+    cout<<"LEAVE void figures::line::cutAbs3D()"<<endl;
+
+
 }
 void figures::line::cutAbsLim3D(){
+
+     cout<<"ENTER void figures::line::cutAbs3D()"<<endl;
 
     double l = itsValues[0];
     double phi = itsValues[1];
@@ -226,16 +197,21 @@ void figures::line::cutAbsLim3D(){
         pointerToE545->moveTo(storagePos[0][0], storagePos[0][1], storagePos[0][2]);
         pointerToE545->setLimits(limAxis, pos[limAxis], pos[limAxis] + vec[limAxis]);
 
-        for (int i = 1; i <= repetitions; i++){
+        for (int i = 0; i < repetitions; i++){
 
+            cout<<"i "<<i<<endl;
             pointerToE545->moveTo(storagePos[i][0], storagePos[i][1], storagePos[i][2]);
 
         }
+        cout<<"close sh"<<endl;
         pointerToE545->closeShutter();
+        cout<<"close set vel"<<endl;
         pointerToE545->setVelocity(1000, 1000, 1000);
         pointerToE545->moveTo(pos[0], pos[1], pos[2]);
 
     }//else
+
+       cout<<"LEAVE void figures::line::cutAbs3D()"<<endl;
 
 }
 

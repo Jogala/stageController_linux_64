@@ -48,12 +48,16 @@ bool stageController::establishConnection(){
     //        std::cout << "ID = " << ID << " connection established" << std::endl;
     //        return 1;
     //    }
+
+    return 1;
 }
 int stageController::getID(){
 
     cout<<"int stageController::getID(){"<<endl;
 
     //return ID;
+
+    return 1;
 
 }
 void stageController::closeConnection(){
@@ -113,6 +117,8 @@ bool stageController::switchChannelsOn(){
     //        std::cout << "All channels online" << std::endl;
     //        return 1;
     //    }
+
+    return 1;
 }
 
 void stageController::setFocus_and_writeValuesToFile(double xFocus, double yFocus, double zFocus){
@@ -145,13 +151,25 @@ void stageController::loadFocusValuesFromFile(){
         if (myReadFile.is_open()) {
 
 
-                    myReadFile >> itsXFocus;
+                    if(!(myReadFile >> itsXFocus)){
+                    itsXFocus=0;
+                    cout<<fileName_FocusValues<<" did not contain values for focus set"<<endl;
+                    cout<<"itsXFocus set to 0"<<endl;
+                    }
                     cout << itsXFocus << endl;
 
-                    myReadFile >> itsYFocus;
+                    if(!(myReadFile >> itsYFocus)){
+                    itsYFocus=0;
+                    cout<<fileName_FocusValues<<" did not contain values for focus set"<<endl;
+                    cout<<"itsYFocus set to 0"<<endl;
+                    }
                     cout << itsYFocus << endl;
 
-                    myReadFile >> itsZFocus;
+                    if(!(myReadFile >> itsZFocus)){
+                    itsZFocus=0;
+                    cout<<fileName_FocusValues<<" did not contain values for focus set"<<endl;
+                    cout<<"itsXFocus set to 0"<<endl;
+                    }
                     cout << itsZFocus << endl;
 
                     myReadFile.close();
@@ -212,6 +230,7 @@ bool stageController::switchAllServosOn(){
 //        return 1;
 //    }
 
+    return 1;
 
 }
 void stageController::moveTo(double xCoord, double yCoord, double zCoord){
@@ -318,6 +337,14 @@ void stageController::move(double xDelta, double yDelta, double zDelta){
 }
 void stageController::move(double vec[3]){
 
+
+    for(int i =0 ; i<3 ;i++){
+
+        vec[i]=i;
+
+    }
+
+
     cout<<"void stageController::move(double vec[3])"<<endl;
 
 //    double position[3];
@@ -404,6 +431,14 @@ void stageController::printPosition(){
 }
 void stageController::getPositon(double position[3]){
 
+
+    for(int i =0 ; i<3 ;i++){
+
+        position[i]=i;
+
+    }
+
+
     cout<<"void stageController::getPositon(double position[3])"<<endl;
 
 
@@ -419,6 +454,12 @@ void stageController::getPositon(double position[3]){
 }
 void stageController::getPositon(Eigen::Vector3d & position){
 
+
+    for(int i =0 ; i<3 ;i++){
+
+        position[i]=i;
+
+    }
 
     cout<<"void stageController::getPositon(Eigen::Vector3d & position)"<<endl;
 
@@ -454,6 +495,8 @@ bool stageController::switchVelocityControlModeOn(){
 //        std::cout << "Velocity control mode ON for all channels" << std::endl;
 //        return 1;
 //    }
+
+    return 1;
 }
 bool stageController::switchDriftControlModeOn(){
 
@@ -475,6 +518,8 @@ bool stageController::switchDriftControlModeOn(){
 //        std::cout << "Drift control mode ON for all channels" << std::endl;
 //        return 1;
 //    }
+
+    return 1;
 }
 
 void stageController::setVelocity(double xVelocity, double yVelocity, double zVelocity){
@@ -507,8 +552,6 @@ void stageController::setVelocity(const double velocity[3]){
 
     cout<<"void stageController::setVelocity(const double velocity[3])"<<endl;
 
-
-
 //    if ((0 <= velocity[0]) && (velocity[0] <= veloLimit) && (0 <= velocity[1]) && (velocity[1] <= veloLimit) && (0 <= velocity[2]) && (velocity[2] <= veloLimit))
 //    {
 //        PI_VEL(ID, szAxes, velocity);
@@ -540,6 +583,9 @@ void stageController::deltaVelocity(double xDeltaVelocity, double yDeltaVelocity
 
 void stageController::getVelocity(double &xVelocity, double &yVelocity, double &zVelocity){
 
+    xVelocity=1;
+    yVelocity=1;
+    zVelocity=1;
 
     cout<<"void stageController::getVelocity(double &xVelocity, double &yVelocity, double &zVelocity)"<<endl;
 
@@ -554,6 +600,15 @@ void stageController::getVelocity(double &xVelocity, double &yVelocity, double &
 
 }
 void stageController::getVelocity(double velocity[3]){
+
+    for(int i =0 ; i<3 ;i++){
+
+        velocity[i]=i;
+
+    }
+
+
+
 
     cout<<"void stageController::getVelocity(double velocity[3])"<<endl;
 
@@ -754,6 +809,9 @@ void stageController::closeShutter(){
 
 void stageController::getLimits(int whichAxis, double &min, double &max){
 
+    min =1;
+    max =1;
+
     cout<<"void stageController::getLimits(int whichAxis, double &min, double &max)"<<endl;
 
 
@@ -775,7 +833,12 @@ void stageController::getLimits(int whichAxis, double &min, double &max){
 void stageController::getLimits(double &xMin, double &xMax, double &yMin, double &yMax, double &zMin, double &zMax){
 
     cout<<"void stageController::getLimits(double &xMin, double &xMax, double &yMin, double &yMax, double &zMin, double &zMax)"<<endl;
-
+xMin = 1;
+xMax = 1;
+yMin = 1;
+yMax = 1;
+zMin = 1;
+zMax = 1;
 
 //    int piTriggerParameterArray[1];
 //    int piTriggerOutputIdsArray[1];
@@ -815,7 +878,6 @@ void stageController::printLimits(){
 
     cout<<"void stageController::printLimits()"<<endl;
 
-
 //    double xMin, xMax, yMin, yMax, zMin, zMax;
 //    getLimits(1, xMin, xMax);
 //    getLimits(2, yMin, yMax);
@@ -841,6 +903,8 @@ bool stageController::checkIfAnyLimit(){
 //    {
 //        return 0;
 //    }
+
+    return 1;
 }
 
 //MACRO
@@ -976,6 +1040,9 @@ string stageController::setLimitsMacro(int whichAxis, double value1, double valu
 //        return f.str();
 
 //    }
+
+    string s = "string stageController::setLimitsMacro(int whichAxis, double value1, double value2, double altValue1, double altValue2)";
+    return s;
 
 }
 

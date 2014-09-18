@@ -46,8 +46,7 @@ firstPage::firstPage(QWidget *parent) :
     {
         this->setTabOrder(static_cast<QSpinBox*>(lineTable->cellWidget(i,1)),static_cast<QSpinBox*>(lineTable->cellWidget(i+1,1)));
     }
-    this->setTabOrder(static_cast<QSpinBox*>(lineTable->cellWidget(4,1)),ui->line_set);
-    this->setTabOrder(ui->line_set,ui->line_cut);
+    this->setTabOrder(static_cast<QSpinBox*>(lineTable->cellWidget(4,1)),ui->line_cut);
 
 }
 
@@ -57,10 +56,36 @@ firstPage::~firstPage()
 }
 
 
+void firstPage::on_line_cut_clicked()
+{
+    double x;
+    //Assing values from DoubelSpinBoxes to Line
+    for(int i=0;i<5;i++)
+    {
 
+        x=static_cast<QDoubleSpinBox*>(lineTable->cellWidget(i,1))->value();
+        static_cast<QLabel*>(lineTable->cellWidget(i,3))->setText(QString::number(x));
 
+        //convert it to rad
+        if((i==1)||(i==2))
+        {
+            x=(x/360)*2*pi;
+        }
 
-void firstPage::on_rec_set_clicked()
+        mLine.setValue(i,x);
+
+    }
+
+    //Write the Values also to the txt file, s.t, when the Program is closed and started again, those values get loaded
+    mLine.writeValuesToTextFile();
+
+    mLine.printMemberVariables();
+    mLine.cutAbsLim3D();
+
+    cout<<"lin cut done"<<endl;
+}
+
+void firstPage::on_rec_cut_clicked()
 {
 
     double x;
@@ -84,12 +109,15 @@ void firstPage::on_rec_set_clicked()
     //Write the Values also to the txt file, s.t, when the Program is closed and started again, those values get loaded
     mRectangle.writeValuesToTextFile();
 
+
+    mRectangle.printMemberVariables();
+    mRectangle.cutAbs3D();
 }
 
-void firstPage::on_poly_set_clicked()
+void firstPage::on_poly_cut_clicked()
 {
     double x;
-    //Assing values from DoubelSpinBoxes to Rectangle
+    //Assing values from DoubelSpinBoxes to Poly
     for(int i=0;i<6;i++)
     {
 
@@ -108,12 +136,16 @@ void firstPage::on_poly_set_clicked()
 
     //Write the Values also to the txt file, s.t, when the Program is closed and started again, those values get loaded
     mPoly.writeValuesToTextFile();
+
+    mPoly.printMemberVariables();
+    mPoly.cutAbsViaMacro3D();
 }
 
-void firstPage::on_spiral_set_clicked()
+void firstPage::on_spiral_cut_clicked()
 {
+
     double x;
-    //Assing values from DoubelSpinBoxes to Rectangle
+    //Assing values from DoubelSpinBoxes to Spiral
     for(int i=0;i<8;i++)
     {
 
@@ -132,51 +164,8 @@ void firstPage::on_spiral_set_clicked()
 
     //Write the Values also to the txt file, s.t, when the Program is closed and started again, those values get loaded
     mSpiral.writeValuesToTextFile();
-}
 
-void firstPage::on_line_set_clicked()
-{
-    double x;
-    //Assing values from DoubelSpinBoxes to Rectangle
-    for(int i=0;i<5;i++)
-    {
-
-        x=static_cast<QDoubleSpinBox*>(lineTable->cellWidget(i,1))->value();
-        static_cast<QLabel*>(lineTable->cellWidget(i,3))->setText(QString::number(x));
-
-        //convert it to rad
-        if((i==1)||(i==2))
-        {
-            x=(x/360)*2*pi;
-        }
-
-        mLine.setValue(i,x);
-
-    }
-
-    //Write the Values also to the txt file, s.t, when the Program is closed and started again, those values get loaded
-    mLine.writeValuesToTextFile();
-}
-
-
-void firstPage::on_line_cut_clicked()
-{
-    mLine.printMemberVariables();
-    mLine.cutAbsLim3D();
-}
-
-void firstPage::on_rec_cut_clicked()
-{
-    mRectangle.cutAbs3D();
-}
-
-void firstPage::on_poly_cut_clicked()
-{
-    mPoly.cutAbsViaMacro3D();
-}
-
-void firstPage::on_spiral_cut_clicked()
-{
+    mSpiral.printMemberVariables();
     mSpiral.cutAbsMacroSpiral3D();
 }
 
