@@ -12,3 +12,18 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_actionFigures_triggered()
+{
+
+}
+
+void MainWindow::on_actionSettings_triggered()
+{
+
+}
+
+void MainWindow::on_actionPuls_triggered()
+{
+
+}

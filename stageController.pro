@@ -46,3 +46,6 @@ else:unix: LIBS += -L$$PWD/PI_stuff/ -lpi_pi_gcs2
 
 INCLUDEPATH += $$PWD/PI_stuff
 DEPENDPATH += $$PWD/PI_stuff
+
+RESOURCES += \
+    Resources.qrc
