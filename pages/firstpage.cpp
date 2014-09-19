@@ -27,11 +27,30 @@ firstPage::firstPage(QWidget *parent) :
     QShortcut *shortCut_ctrl_s = new QShortcut(QKeySequence("CTRL+S"), this);
     QObject::connect(shortCut_ctrl_s, SIGNAL(activated()), this, SLOT(setFocus_spiralTable()));
 
-    for(int i = 0; i<recTable->rowCount()-1 ; i++)
+    for(int i = 0; i<lineTable->rowCount()-1 ; i++)
     {
         this->setTabOrder(static_cast<QSpinBox*>(lineTable->cellWidget(i,1)),static_cast<QSpinBox*>(lineTable->cellWidget(i+1,1)));
     }
     this->setTabOrder(static_cast<QSpinBox*>(lineTable->cellWidget(4,1)),ui->line_cut);
+
+    for(int i = 0; i<recTable->rowCount()-1 ; i++)
+    {
+        this->setTabOrder(static_cast<QSpinBox*>(recTable->cellWidget(i,1)),static_cast<QSpinBox*>(recTable->cellWidget(i+1,1)));
+    }
+    this->setTabOrder(static_cast<QSpinBox*>(recTable->cellWidget(5,1)),ui->rec_cut);
+
+    for(int i = 0; i<polyTable->rowCount()-1 ; i++)
+    {
+        this->setTabOrder(static_cast<QSpinBox*>(polyTable->cellWidget(i,1)),static_cast<QSpinBox*>(polyTable->cellWidget(i+1,1)));
+    }
+    this->setTabOrder(static_cast<QSpinBox*>(polyTable->cellWidget(5,1)),ui->poly_cut);
+
+
+    for(int i = 0; i<spiralTable->rowCount()-1 ; i++)
+    {
+        this->setTabOrder(static_cast<QSpinBox*>(spiralTable->cellWidget(i,1)),static_cast<QSpinBox*>(spiralTable->cellWidget(i+1,1)));
+    }
+    this->setTabOrder(static_cast<QSpinBox*>(spiralTable->cellWidget(7,1)),ui->spiral_cut);
 
 }
 

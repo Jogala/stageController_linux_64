@@ -154,6 +154,9 @@
           <property name="text">
            <string>line_cut</string>
           </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
        </layout>
@@ -262,6 +265,9 @@
           <property name="text">
            <string>rec_cut</string>
           </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
        </layout>
@@ -369,6 +375,9 @@
          <widget class="QPushButton" name="poly_cut">
           <property name="text">
            <string>poly_cut</string>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -498,6 +507,9 @@
           <property name="text">
            <string>spiral_cut</string>
           </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
        </layout>
@@ -538,9 +550,6 @@
     </item>
    </layout>
   </widget>
-  <zorder>layoutWidget</zorder>
-  <zorder>verticalSpacer</zorder>
-  <zorder>verticalSpacer_2</zorder>
  </widget>
  <resources/>
  <connections/>

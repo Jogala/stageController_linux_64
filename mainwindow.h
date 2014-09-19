@@ -24,6 +24,8 @@
 #include <QVBoxLayout>
 #include <QAction>
 #include <QWidgetAction>
+#include <QToolBar>
+#include <QLayout>
 
 #include "pages/firstpage.h"
 #include "pages/secondpage.h"
@@ -39,6 +41,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
+    void adjusMainWindowFor_firstPage();
+    void adjusMainWindowFor_secondPage();
+    void adjusMainWindowFor_thirdPage();
+
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
@@ -56,6 +63,9 @@ private:
     QRect recMenuBar;
     int firstPageHeight = 520;
     int firstPageWidth  = 1570;
+
+    int thirdPageHeight = 430;
+    int thirdPageWidth = 830;
 
 };
 

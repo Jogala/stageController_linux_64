@@ -10,6 +10,8 @@ secondPage::secondPage(QWidget *parent) :
     ui->T_spinBox->setMaximum(10000);
     ui->minDeltaT_spinBox->setMinimum(0);
     ui->minDeltaT_spinBox->setMaximum(10000);
+
+    this->setLayout(ui->gridLayout);
 }
 
 secondPage::~secondPage()

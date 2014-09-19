@@ -48,6 +48,7 @@ thirdPage::thirdPage(QWidget *parent) :
     ui->stepSize_spinBox->setValue(stepSize);
     ui->vel_spinBox->setValue(vel);
 
+    //this->setLayout(ui->gridLayout_2);
 }
 
 thirdPage::~thirdPage()
