@@ -7,11 +7,21 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    pagesGeom.resize(3,2);
+
+    pagesGeom(0,0)=1570;
+    pagesGeom(0,1)=550;
+
+    pagesGeom(2,0)=830;
+    pagesGeom(2,1)=450;
+
+    maxWidthFirstPage=1570;
+
     QSize myIconSize(100,100);
     ui->mainToolBar->setIconSize(myIconSize);
 
     stackedWidget = new QStackedWidget(this);
-    firstPage *firstPageWidget= new firstPage(this);
+    firstPageWidget= new firstPage(this);
     secondPage *secondPageWidget= new secondPage(this);
     thirdPage *thirdPageWidget = new thirdPage(this);
 
@@ -36,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setCentralWidget(stackedWidget);
     adjusMainWindowFor_firstPage();
 
+    ui->mainToolBar->setMovable(false);
 }
 
 MainWindow::~MainWindow()
@@ -55,6 +66,12 @@ void MainWindow::on_actionFigures_triggered()
 
 void MainWindow::on_actionPuls_triggered()
 {
+
+    if(stackedWidget->currentIndex()==0){
+        //Save current width of firstPage
+        pagesGeom(0,0)=static_cast<QRect>(this->geometry()).width();
+    }
+
     stackedWidget->setCurrentIndex(1);
     this->setCentralWidget(stackedWidget);
 
@@ -64,6 +81,12 @@ void MainWindow::on_actionPuls_triggered()
 
 void MainWindow::on_actionSettings_triggered()
 {
+
+    if(stackedWidget->currentIndex()==0){
+        //Save current width of firstPage
+        pagesGeom(0,0)=static_cast<QRect>(this->geometry()).width();
+    }
+
     stackedWidget->setCurrentIndex(2);
     this->setCentralWidget(stackedWidget);
 
@@ -72,40 +95,24 @@ void MainWindow::on_actionSettings_triggered()
 
 void MainWindow::adjusMainWindowFor_firstPage(){
 
-    QRect sizeMenuBar = this->menuBar()->geometry();
-    int widthOfScrollBar = qApp->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
-
-    this->setFixedHeight(firstPageHeight+1.5*widthOfScrollBar+ sizeMenuBar.height());
-    this->setMaximumWidth(firstPageWidth+1.5*widthOfScrollBar);
-    this->resize(firstPageWidth+ 1.5*widthOfScrollBar,firstPageHeight+1.5*widthOfScrollBar+ sizeMenuBar.height());
+    this->setFixedHeight(pagesGeom(0,1));
+    this->setMaximumWidth(maxWidthFirstPage );
+    this->resize(pagesGeom(0,0),pagesGeom(0,1));
 
 }
 
 void MainWindow::adjusMainWindowFor_secondPage(){
 
-    QRect sizeMenuBar = this->menuBar()->geometry();
-    QRect sizeMenuWidegt= this->menuWidget()->geometry();
-
-    QRect sizeToolbar = ui->mainToolBar->geometry();
     QLayout * mLayout = stackedWidget->currentWidget()->layout();
 
     this->setFixedSize(mLayout->geometry().width(),
-                       mLayout->geometry().height()+sizeMenuBar.height()+sizeMenuWidegt.height()+sizeToolbar.height());
+                       mLayout->geometry().height());
 
 }
 
 void MainWindow::adjusMainWindowFor_thirdPage(){
 
-    QRect sizeMenuBar = this->menuBar()->geometry();
-    QRect sizeMenuWidegt= this->menuWidget()->geometry();
-
-    QRect sizeToolbar = ui->mainToolBar->geometry();
-
-
-
-
-    this->setFixedSize(thirdPageWidth,thirdPageHeight+sizeMenuBar.height()+sizeMenuWidegt.height()+sizeToolbar.height());
-    this->resize(thirdPageWidth,thirdPageHeight+sizeMenuBar.height()+sizeMenuWidegt.height()+sizeToolbar.height());
-
+    this->setFixedSize(pagesGeom(2,0),pagesGeom(2,1));
+    this->resize(pagesGeom(2,0),pagesGeom(2,1));
 
 }

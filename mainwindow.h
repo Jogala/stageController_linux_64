@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <Eigen/Core>
 #include <QWidget>
 #include <QMainWindow>
 #include <QTableWidget>
@@ -61,12 +62,13 @@ private:
     Ui::MainWindow *ui;
     QStackedWidget *stackedWidget;
     QRect recMenuBar;
-    int firstPageHeight = 520;
-    int firstPageWidth  = 1570;
 
-    int thirdPageHeight = 430;
-    int thirdPageWidth = 830;
+    firstPage *firstPageWidget;
 
+    const int anzahlPages = 3;
+
+    Eigen::MatrixXi pagesGeom;
+    int maxWidthFirstPage;
 };
 
 #endif // MAINWINDOW_H
